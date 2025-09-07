@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { geistMono, geistSans } from "./(components)/fonts";
-import { DesktopNavbar } from "./(components)/desktop-navbar/desktop-navbar";
 
 export const metadata: Metadata = {
   title: "YAT - Yap about tech",
@@ -16,11 +15,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <nav>
-          <DesktopNavbar />
-        </nav>
         {children}
       </body>
     </html>

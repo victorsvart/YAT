@@ -1,30 +1,41 @@
+"use client";
+
+import { useState } from "react";
 import {
   Home,
   Zap,
   TrendingUp,
   MessageCircle,
-  Bookmark,
   User,
   Settings,
 } from "lucide-react";
+import Link from "next/link";
 
 export const DesktopNavbar = () => {
+  const [activeItem, setActiveItem] = useState("Dashboard"); 
+
   const menuItems = [
-    { name: "Dashboard", icon: Home, active: true },
-    { name: "Pulse", icon: Zap },
-    { name: "Trending", icon: TrendingUp },
-    { name: "Conversations", icon: MessageCircle },
-    { name: "Saved", icon: Bookmark },
-    { name: "Profile", icon: User },
-    { name: "Settings", icon: Settings },
+    { name: "Dashboard", path: "/dashboard/home", icon: Home },
+    { name: "Pulse", path: "/dashboard/pulse", icon: Zap },
+    { name: "Trending", path: "/dashboard/trending", icon: TrendingUp },
+    { name: "Chats", path: "/dashboard/chats", icon: MessageCircle },
+    { name: "Profile", path: "/dashboard/profile", icon: User },
+    { name: "Settings", path: "/settings", icon: Settings },
   ];
+
+  const onMenuItemClick = (name: string) => {
+    setActiveItem(name);
+  };
+
   return (
-    <div className="fixed top-0 left-0 w-16 rounded-4xl h-screen bg-zinc-900 m-1.5">
+    <div className="fixed left-0 w-16 rounded-4xl h-screen bg-zinc-900 m-1.5">
       {menuItems.map((item) => (
-        <div
+        <Link
+          href={item.path}
           key={item.name}
+          onClick={() => onMenuItemClick(item.name)}
           className={`flex items-center justify-center transition-all h-12 w-12 mx-auto my-2 rounded-3xl cursor-pointer group ${
-            item.active
+            activeItem === item.name
               ? "bg-white text-black"
               : "text-zinc-400 hover:bg-zinc-700 hover:text-white"
           }`}
@@ -49,7 +60,7 @@ export const DesktopNavbar = () => {
           >
             {item.name}
           </span>
-        </div>
+        </Link>
       ))}
     </div>
   );
