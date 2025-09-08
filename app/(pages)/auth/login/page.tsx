@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/app/(components)/button/button-component";
 import { Input } from "@/app/(components)/input/input-component";
-import { LoginForm, LoginFormSchema } from "@/app/lib/types/login-form-schema";
+import { LoginForm, LoginFormSchema } from "@/app/lib/types/schema/login-form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
@@ -40,7 +40,7 @@ export default function LoginPage() {
         setApiError(errorData.message || "Login failed");
         return;
       }
-      router.push("/");
+      router.push("/dashboard/home/general");
     } catch (error) {
       setApiError("An unexpected error occurred. Please try again.");
       console.error("Error during login:", error);

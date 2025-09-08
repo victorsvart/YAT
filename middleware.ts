@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
 import { decrypt } from './app/lib/jwt/session'
  
-const protectedRoutes = ['/']
+const protectedRoutes = ['/dashboard/home/general']
 const publicRoutes = ['/auth/login', '/auth/register', '/']
  
 export default async function middleware(req: NextRequest) {

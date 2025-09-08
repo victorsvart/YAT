@@ -1,6 +1,6 @@
 import "server-only";
 import { jwtVerify, SignJWT } from "jose";
-import { SessionPayload } from "../types/session-payload";
+import { SessionPayload } from "../types/session/session-payload";
 import { cookies } from "next/headers";
 
 const secretKey = process.env.SECRET;
@@ -70,4 +70,9 @@ export async function getSession(): Promise<SessionPayload | null> {
   }
   
   return await decrypt(sessionCookie.value);
+}
+
+export async function getUserId(): Promise<number | null> {
+  const session = await getSession();
+  return session?.userId || null;
 }

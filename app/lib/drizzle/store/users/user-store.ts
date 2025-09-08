@@ -1,7 +1,7 @@
 import { eq } from "drizzle-orm";
 import { db } from "../..";
 import { usersTable } from "../../db/schema";
-import { RegisterForm } from "@/app/lib/types/register-form-schema";
+import { RegisterForm } from "@/app/lib/types/schema/register-form-schema";
 
 export async function selectUser(
   username: string

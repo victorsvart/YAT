@@ -2,7 +2,7 @@ import { decryptPassword } from "@/app/lib/bcrypt/helpers";
 import { selectUser } from "@/app/lib/drizzle/store/users/user-store";
 import { Success, Unauthorized } from "@/app/lib/http/helpers";
 import { createSession } from "@/app/lib/jwt/session";
-import { LoginForm } from "@/app/lib/types/login-form-schema";
+import { LoginForm } from "@/app/lib/types/schema/login-form-schema";
 
 export async function POST(request: Request): Promise<Response> {
   const data = (await request.json()) as LoginForm;

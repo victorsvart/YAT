@@ -4,7 +4,7 @@ import { Input } from "@/app/(components)/input/input-component";
 import {
   RegisterForm,
   RegisterFormSchema,
-} from "@/app/lib/types/register-form-schema";
+} from "@/app/lib/types/schema/register-form-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import React from "react";

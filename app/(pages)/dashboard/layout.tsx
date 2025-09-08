@@ -6,11 +6,11 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen flex flex-row bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
-      <nav>
+    <div className="min-h-screen flex flex-row bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950">
+      <nav className="flex-shrink-0">
         <DesktopNavbar />
       </nav>
-      <section className="w-full px-16">{children}</section>
+      <section className="w-full">{children}</section>
     </div>
   );
 }

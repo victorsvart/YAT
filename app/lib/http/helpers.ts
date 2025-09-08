@@ -14,6 +14,16 @@ export function Success(props: Props): Response {
   );
 }
 
+export function Created(props: Props): Response {
+  return new Response(
+    JSON.stringify({
+      status: "created",
+      message: props.msg,
+      data: props.data,
+    })
+  );
+}
+
 export function Unauthorized(props: Props): Response {
   return new Response(
     JSON.stringify({
